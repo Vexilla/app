@@ -1,8 +1,18 @@
 import { createStore } from "vuex";
+import app, { AppState } from "@/store/app";
+import ui, { UIState } from "@/store/ui";
 
-export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+import createPersistedState from "vuex-persistedstate";
+
+export interface State {
+  app: AppState;
+  ui: UIState;
+}
+
+export default createStore<State>({
+  modules: {
+    app,
+    ui,
+  },
+  plugins: [createPersistedState()],
 });
