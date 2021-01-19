@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2.1.2
         with:
-          node-version: "10.x"
+          node-version: "14.x"
 
       - uses: borales/actions-yarn@v2.0.0
         with:
