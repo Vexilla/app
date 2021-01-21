@@ -47,7 +47,7 @@ console.log("NODE_ENV", process.env.NODE_ENV);
 console.log("BASE_URL", process.env.BASE_URL);
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory("/app"),
   routes,
 });
 
