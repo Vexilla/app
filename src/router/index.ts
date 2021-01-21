@@ -47,7 +47,7 @@ const routes: Array<RouteRecordRaw> = [
 
 let history;
 
-if (process.env.NODE_ENV === "production") {
+if (false && process.env.NODE_ENV === "production") {
   history = createWebHistory("/");
 } else {
   history = createWebHistory(process.env.BASE_URL);
