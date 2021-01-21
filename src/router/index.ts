@@ -43,18 +43,8 @@ const routes: Array<RouteRecordRaw> = [
   },
 ];
 
-// process.env.BASE_URL = "/";
-
-let history;
-
-if (false && process.env.NODE_ENV === "production") {
-  history = createWebHistory("/");
-} else {
-  history = createWebHistory(process.env.BASE_URL);
-}
-
 const router = createRouter({
-  history,
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
