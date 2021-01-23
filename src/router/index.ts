@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -47,7 +47,7 @@ console.log("NODE_ENV", process.env.NODE_ENV);
 console.log("BASE_URL", process.env.BASE_URL);
 
 const router = createRouter({
-  history: createWebHistory("/app"),
+  history:  createWebHashHistory(process.env.BASE_URL), //createWebHistory(process.env.BASE_URL),
   routes,
 });
 
