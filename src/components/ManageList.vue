@@ -17,8 +17,7 @@
     <ul class="list">
       <li v-for="item in list" :key="item?.name" class="item">
         <router-link
-          :to="`${pathPrefix}/${item.name}`"
-          @click.prevent="navigated"
+          :to="{ name: namedRoute, params: { name: item.name } }"
           class="item-link"
           :title="item?.name"
         >
@@ -119,7 +118,7 @@ export default defineComponent({
   props: {
     itemLabel: String,
     list: Array,
-    pathPrefix: String,
+    namedRoute: String,
   },
   components: {
     Icon,
@@ -130,7 +129,6 @@ export default defineComponent({
         this.$emit("item-added", {
           name: this.inputText,
         });
-        // this.$refs.inputField;
         this.inputText = null;
       }
     },

@@ -82,7 +82,7 @@
     <h2>Environments ({{ environments?.length }})</h2>
     <ManageList
       item-label="Environment"
-      pathPrefix="/environment"
+      namedRoute="Environment"
       :list="environments"
       @itemAdded="addEnvironment"
       @itemRemoved="removeEnvironment"
@@ -92,7 +92,7 @@
     <h2>Features ({{ features?.length }})</h2>
     <ManageList
       item-label="Feature"
-      pathPrefix="/feature"
+      namedRoute="Feature"
       :list="features"
       @itemAdded="addFeature"
       @itemRemoved="removeFeature"
@@ -153,7 +153,6 @@ export default defineComponent({
       this.$router.push("/configuration");
       this.toggleSidebarShowing();
     },
-
     publishChanges() {
       const appState = (this.$store as any).state.app as AppState;
       const payload = HostingService.formatPayloadFromState(appState);
