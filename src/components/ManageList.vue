@@ -135,11 +135,6 @@ export default defineComponent({
     removeItem(item: any) {
       this.$emit("item-removed", item);
     },
-    navigated(event: any) {
-      this.$emit("navigated");
-      const path = event.target.attributes[0].nodeValue;
-      this.$router.push(path);
-    },
   },
 });
 </script>
