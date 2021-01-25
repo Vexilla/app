@@ -1,6 +1,19 @@
 <template>
   <header class="header">
-    <h1><Icon :icon="icons.flag" /> <span class="app-title">Vexilla</span></h1>
+    <a href="/" class="header-link">
+      <h1 class="header-heading">
+        <span class="logo-wrapper">
+          <img class="logo-image" src="img/logo-white.svg" />
+        </span>
+        <span class="app-title">
+          Vexilla
+        </span>
+      </h1>
+    </a>
+    <nav class="header-nav">
+      <a class="nav-link" href="/documentation">Documentation
+      </a>
+    </nav>
     <div class="publish-row">
       <div class="status-wrapper">
         <div>
@@ -71,8 +84,33 @@ body {
   @apply h-16 flex justify-between items-center p-4 fixed z-10 bg-white w-full;
 }
 
+.header-link {
+  @apply  no-underline;
+}
+
+.header-heading {
+  @apply flex flex-row font-medium items-center text-gray-900 mb-4 md:mb-0 mt-0;
+}
+
+.logo-wrapper {
+  @apply w-12 h-12 rounded-full p-2 bg-blue-500;
+}
+
+.logo-image {
+  @apply w-auto max-h-full;
+}
+
 .app-title {
-  @apply hidden md:inline;
+  @apply hidden md:inline ml-3 text-xl;
+}
+
+.header-nav {
+  @apply md:mr-auto  md:border-solid md:ml-4 md:py-1 md:pl-4 md:border-l md:border-t-0 md:border-r-0 md:border-b-0 md:border-gray-400	flex flex-wrap items-center text-base justify-center;
+}
+
+.nav-link {
+  @apply mr-5 text-gray-800
+  hover:text-gray-900 no-underline;
 }
 
 .publish-row {
