@@ -206,7 +206,7 @@ export default defineComponent({
   @apply bg-gray-50
     w-screen md:w-96 h-full fixed md:relative transform md:transform-none translate-x-full transition-all p-4 overflow-y-scroll pb-16 z-10;
 
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 84px);
 }
 
 .showing {

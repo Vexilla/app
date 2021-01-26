@@ -81,7 +81,7 @@ body {
 }
 
 .header {
-  @apply h-16 flex justify-between items-center p-4 fixed z-10 bg-white w-full;
+  @apply flex flex-row justify-between items-center p-5 fixed z-10 bg-white w-full max-w-screen-lg mx-auto;
 }
 
 .header-link {
@@ -144,13 +144,15 @@ body {
 }
 
 .layout {
-  @apply flex flex-row h-full relative pt-16;
+  @apply flex flex-row h-full relative;
+
+  padding-top: 84px;
 }
 
 .page-wrapper {
   @apply p-4 w-full overflow-y-scroll pb-24;
 
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 84px);
 }
 
 .mobile-menu-button {
