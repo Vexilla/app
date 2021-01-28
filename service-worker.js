@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/app/precache-manifest.ee602d28ebd2863425bdfdec16504689.js"
+  "/app/precache-manifest.53c0479ad802bdc069579ca75c901f7d.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "app"});
+workbox.core.setCacheNameDetails({prefix: "vexilla-config-ui"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
