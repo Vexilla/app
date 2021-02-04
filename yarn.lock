@@ -1969,6 +1969,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@headlessui/vue@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-0.2.0.tgz#4ecbe0e0c2db46547e1c6c852d15903b55e256c3"
+  integrity sha512-aJ8cCyxNJQcea7I0POrFYtYvT7agmrKAAA8zhBWJxGXTLnFdXlkETKU8eIhd/VlaOOKeYxlzXaHZs/YfwWoc2g==
+
 "@iconify-icons/ant-design@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@iconify-icons/ant-design/-/ant-design-1.1.0.tgz#7fbaa994dcac24195512164595118819e5749bca"

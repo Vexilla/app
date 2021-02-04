@@ -11,8 +11,7 @@
       </h1>
     </a>
     <nav class="header-nav">
-      <a class="nav-link" href="/documentation">Documentation
-      </a>
+      <a class="nav-link" href="/documentation">Documentation </a>
     </nav>
     <div class="publish-row">
       <div class="status-wrapper">
@@ -85,7 +84,7 @@ body {
 }
 
 .header-link {
-  @apply  no-underline;
+  @apply no-underline;
 }
 
 .header-heading {
@@ -269,7 +268,7 @@ button {
     @apply flex flex-row justify-start items-start;
 
     & h3 {
-      @apply m-0 w-16 md:w-36 text-right pt-4;
+      @apply m-0 w-16 md:w-36 text-right pt-0;
     }
 
     & .field {
@@ -336,9 +335,9 @@ export default defineComponent({
       icons: {
         flag: flagIcon,
         openMenu: openMenuIcon,
-        closeMenu: closeMenuIcon,
+        closeMenu: closeMenuIcon
       },
-      fetchInterval: null as null | NodeJS.Timeout,
+      fetchInterval: null as null | NodeJS.Timeout
     };
   },
   created() {
@@ -353,7 +352,7 @@ export default defineComponent({
   computed: {
     ...mapState("app", ["hosting"]),
     ...mapState("ui", ["sidebarShowing"]),
-    ...mapGetters("app", ["configIsValid", "dataHasChanged"]),
+    ...mapGetters("app", ["configIsValid", "dataHasChanged"])
   },
   methods: {
     ...mapActions("ui", ["toggleSidebarShowing"]),
@@ -373,11 +372,11 @@ export default defineComponent({
 
         this.$store.dispatch("app/setExistingFeatures", result.data);
       }
-    },
+    }
   },
   components: {
     Sidebar,
-    Icon,
-  },
+    Icon
+  }
 });
 </script>

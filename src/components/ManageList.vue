@@ -111,30 +111,30 @@ export default defineComponent({
       inputText: "" as string | null,
       icons: {
         plus: plusIcon,
-        remove: removeIcon,
-      },
+        remove: removeIcon
+      }
     };
   },
   props: {
     itemLabel: String,
     list: Array,
-    namedRoute: String,
+    namedRoute: String
   },
   components: {
-    Icon,
+    Icon
   },
   methods: {
     addItem() {
       if (this.inputText) {
         this.$emit("item-added", {
-          name: this.inputText,
+          name: this.inputText
         });
         this.inputText = null;
       }
     },
     removeItem(item: any) {
       this.$emit("item-removed", item);
-    },
-  },
+    }
+  }
 });
 </script>

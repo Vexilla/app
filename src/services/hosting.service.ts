@@ -2,15 +2,15 @@ import { AppState, Feature } from "@/store/app";
 import { HostingConfigS3, S3Adapter } from "./hosting-adapters/s3.adapter";
 import {
   HostingConfigAzure,
-  AzureAdapter,
+  AzureAdapter
 } from "./hosting-adapters/azure.adapter";
 import {
   HostingConfigGcloud,
-  GcloudAdapter,
+  GcloudAdapter
 } from "./hosting-adapters/gcloud.adapter";
 import {
   HostingConfigFirebase,
-  FirebaseAdapter,
+  FirebaseAdapter
 } from "./hosting-adapters/firebase.adapter";
 
 export type HostingProvider = "s3" | "azure" | "gcloud" | "firebase" | null;
@@ -25,7 +25,7 @@ export type HostingConfig =
 export enum HostingStatusType {
   NORMAL = "normal",
   ERROR = "error",
-  WARNING = "warning",
+  WARNING = "warning"
 }
 
 export interface HostingStatus {
@@ -46,7 +46,7 @@ export class HostingService {
     s3: S3Adapter,
     azure: AzureAdapter,
     gcloud: GcloudAdapter,
-    firebase: FirebaseAdapter,
+    firebase: FirebaseAdapter
   };
 
   static async upload(payload: any, hostingAdapter: HostingAdapter) {
@@ -62,9 +62,9 @@ export class HostingService {
   static formatPayloadFromState(state: AppState) {
     const payload: any = { environments: {} };
 
-    state.environments.forEach((environment) => {
+    state.environments.forEach(environment => {
       payload.environments[environment.name] = {
-        untagged: {},
+        untagged: {}
       };
 
       state.features.forEach((feature: Feature) => {
@@ -72,11 +72,11 @@ export class HostingService {
           ...state.featuresSettings[
             `${feature.name}/${environment.name}/${feature.type}`
           ],
-          type: feature.type,
+          type: feature.type
         };
 
         payload.environments[environment.name].untagged[feature.name] = {
-          ...featureSettings,
+          ...featureSettings
         };
       });
     });

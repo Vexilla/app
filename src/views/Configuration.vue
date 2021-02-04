@@ -265,13 +265,13 @@ export default defineComponent({
   name: "Configuration",
   components: {},
   computed: {
-    ...mapState("app", ["hosting"]),
+    ...mapState("app", ["hosting"])
   },
   methods: {
     ...mapActions("app", ["updateHostingProvider"]),
     updateHostingConfig(propName: string, configValue: string) {
       const payload = {
-        ...this.hosting?.config,
+        ...this.hosting?.config
       };
       payload[propName] = configValue;
       this.$store.dispatch("app/updateHostingConfig", payload);
@@ -280,7 +280,7 @@ export default defineComponent({
     selectText(event: any) {
       console.log({ event });
       event.target.select();
-    },
-  },
+    }
+  }
 });
 </script>

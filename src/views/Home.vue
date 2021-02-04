@@ -50,12 +50,12 @@ export default defineComponent({
   data: function() {
     return {
       icons: {
-        flag: flagIcon,
-      },
+        flag: flagIcon
+      }
     };
   },
   components: {
-    Icon,
-  },
+    Icon
+  }
 });
 </script>

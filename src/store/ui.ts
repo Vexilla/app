@@ -11,7 +11,7 @@ export default {
     },
     toggleSidebarShowing(state: UIState, sidebarShowing: boolean) {
       state.sidebarShowing = !state.sidebarShowing;
-    },
+    }
   },
   actions: {
     setSidebarShowing(context: any, sidebarShowing: boolean) {
@@ -19,6 +19,6 @@ export default {
     },
     toggleSidebarShowing(context: any) {
       context.commit("toggleSidebarShowing");
-    },
-  },
+    }
+  }
 };

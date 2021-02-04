@@ -35,8 +35,8 @@
               defaultEnvironmentFeatureValues[environment.name]?.toggle
                 ?.value || false
             "
-            @click="
-              updateDefaultEnvironmentValues($event.target.checked, 'toggle')
+            @toggled="
+              updateDefaultEnvironmentValues($event, 'toggle')
             "
           />
           <button
@@ -138,8 +138,8 @@
         </div>
       </div>
 
-      <h3>Selective</h3>
-      <div class="form-section">
+      <h3 v-if="false">Selective</h3>
+      <div v-if="false" class="form-section">
         <div>selective</div>
       </div>
     </div>
@@ -172,7 +172,7 @@ export default defineComponent({
   name: "Environment",
   data() {
     return {
-      name: null as string | null,
+      name: null as string | null
     };
   },
   created() {
@@ -188,8 +188,8 @@ export default defineComponent({
         previous: this.environment,
         current: {
           ...this.environment,
-          name: this.name,
-        },
+          name: this.name
+        }
       });
 
       this.$router.push(`/environment/${this.name}`);
@@ -199,6 +199,9 @@ export default defineComponent({
       featureType: VexillaFeatureTypeString,
       propName = "value"
     ) {
+
+      console.log('update value', value);
+
       this.$store.dispatch("app/updateDefaultEnvironmentValues", {
         environment: this.environment,
         defaultValues: {
@@ -207,30 +210,30 @@ export default defineComponent({
             ...this.defaultEnvironmentFeatureValues[this.environment.name][
               featureType
             ],
-            [propName]: value,
-          },
-        },
+            [propName]: value
+          }
+        }
       });
-    },
+    }
   },
   watch: {
     environment(newEnvironment, oldEnvironment) {
       this.name = newEnvironment?.name;
-    },
+    }
   },
   computed: {
     ...mapState("app", [
       "hosting",
       "features",
-      "defaultEnvironmentFeatureValues",
+      "defaultEnvironmentFeatureValues"
     ]),
     environment() {
       const environment = this.$store.getters["app/environmentByName"](
         this.$route.params.name
       );
       return environment;
-    },
+    }
   },
-  components: { Toggle },
+  components: { Toggle }
 });
 </script>

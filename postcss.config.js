@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [require("tailwindcss"), require("postcss-nesting")],
+  plugins: [require("tailwindcss"), require("postcss-nesting")]
 };

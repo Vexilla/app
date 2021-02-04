@@ -17,6 +17,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ManageEnvironments",
-  components: {},
+  components: {}
 });
 </script>

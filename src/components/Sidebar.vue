@@ -117,7 +117,7 @@ import * as clipboard from "clipboard-polyfill/text";
 import {
   HostingService,
   HostingStatus,
-  HostingStatusType,
+  HostingStatusType
 } from "@/services/hosting.service";
 
 export default defineComponent({
@@ -129,21 +129,21 @@ export default defineComponent({
         settings: settingsIcon,
         upload: uploadIcon,
         download: downloadIcon,
-        copy: copyIcon,
-      },
+        copy: copyIcon
+      }
     };
   },
   computed: {
     ...mapState("app", ["environments", "features", "hosting"]),
     ...mapState("ui", ["sidebarShowing"]),
-    ...mapGetters("app", ["configIsValid", "dataHasChanged"]),
+    ...mapGetters("app", ["configIsValid", "dataHasChanged"])
   },
   methods: {
     ...mapActions("app", [
       "addEnvironment",
       "removeEnvironment",
       "addFeature",
-      "removeFeature",
+      "removeFeature"
     ]),
     ...mapActions("ui", ["toggleSidebarShowing", "setSidebarShowing"]),
 
@@ -182,7 +182,7 @@ export default defineComponent({
 
       this.$store.dispatch("app/setHostingStatus", {
         message,
-        type: HostingStatusType.NORMAL,
+        type: HostingStatusType.NORMAL
       } as HostingStatus);
 
       setTimeout(() => {
@@ -192,12 +192,12 @@ export default defineComponent({
           this.$store.dispatch("app/setHostingStatus", { ...currentStatus });
         }
       }, 3000);
-    },
+    }
   },
   components: {
     ManageList,
-    Icon,
-  },
+    Icon
+  }
 });
 </script>
 

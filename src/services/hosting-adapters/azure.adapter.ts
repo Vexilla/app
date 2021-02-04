@@ -12,7 +12,7 @@ export class AzureAdapter {
   static fetchFeatures(config: HostingConfigAzure) {
     const fileUrl = `${config.remoteUrl}features.json`;
 
-    return axios.get(fileUrl).catch((error) => {
+    return axios.get(fileUrl).catch(error => {
       console.log("Error fetching Features");
       return "foo";
     });

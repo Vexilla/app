@@ -22,7 +22,7 @@ export class FirebaseAdapter {
         `https://storage.googleapis.com/upload/storage/v1/b/${config.bucketName}/o?name=features.json&uploadType=media&key=${config.apiKey}`,
         payload
       )
-      .then((result) => {
+      .then(result => {
         console.log({ result });
         return result;
       });

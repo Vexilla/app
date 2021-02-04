@@ -12,7 +12,7 @@ export interface State {
 export default createStore<State>({
   modules: {
     app,
-    ui,
+    ui
   },
-  plugins: [createPersistedState()],
+  plugins: [createPersistedState()]
 });
