@@ -32,7 +32,7 @@
           </button>
           <Toggle
             :toggled="
-              defaultEnvironmentFeatureValues[environment.name]?.toggle
+              defaultEnvironmentFeatureValues[environment?.name]?.toggle
                 ?.value || false
             "
             @toggled="updateDefaultEnvironmentValues($event, 'toggle')"
@@ -51,7 +51,7 @@
         <div>
           <div class="seed-wrapper">
             <div class="row">
-              <h4>Seed: {{ environment.name }}</h4>
+              <h4>Seed: {{ environment?.name }}</h4>
               <input
                 class="feature-input"
                 type="number"
@@ -59,7 +59,7 @@
                 min="0.01"
                 max=".099"
                 :value="
-                  defaultEnvironmentFeatureValues[environment.name]?.gradual
+                  defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.seed
                 "
               />
@@ -71,7 +71,7 @@
                 id="{{environment}}-seed"
                 name="{{environment}}-seed"
                 :value="
-                  defaultEnvironmentFeatureValues[environment.name]?.gradual
+                  defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.seed * 100
                 "
                 type="range"
@@ -103,7 +103,7 @@
                 min="0"
                 max="100"
                 :value="
-                  defaultEnvironmentFeatureValues[environment.name]?.gradual
+                  defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.value
                 "
               />
@@ -115,7 +115,7 @@
                 class="feature-slider"
                 name="{{environment}}-threshold"
                 :value="
-                  defaultEnvironmentFeatureValues[environment.name]?.gradual
+                  defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.value
                 "
                 type="range"
@@ -178,7 +178,7 @@ export default defineComponent({
     if (!this.environment) {
       this.$router.replace("/");
     } else {
-      this.name = this.environment.name;
+      this.name = this.environment?.name;
     }
   },
   methods: {
