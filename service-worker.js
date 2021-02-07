@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/app/precache-manifest.cc0b589c1e18414659249dedf4ded059.js"
+  "/app/precache-manifest.16e2380de1a8fc49a139c4a0f811dbdd.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vexilla-config-ui"});
