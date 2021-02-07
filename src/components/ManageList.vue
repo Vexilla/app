@@ -111,30 +111,36 @@ export default defineComponent({
       inputText: "" as string | null,
       icons: {
         plus: plusIcon,
-        remove: removeIcon
-      }
+        remove: removeIcon,
+      },
     };
   },
   props: {
     itemLabel: String,
     list: Array,
-    namedRoute: String
+    namedRoute: String,
   },
   components: {
-    Icon
+    Icon,
   },
   methods: {
     addItem() {
       if (this.inputText) {
+        const foundItem = this.list?.find((item: any) => {
+          return item.name === this.inputText;
+        });
+        if (foundItem) {
+          return;
+        }
         this.$emit("item-added", {
-          name: this.inputText
+          name: this.inputText,
         });
         this.inputText = null;
       }
     },
     removeItem(item: any) {
       this.$emit("item-removed", item);
-    }
-  }
+    },
+  },
 });
 </script>
