@@ -1,4 +1,10 @@
-# app
+# Vexilla Config UI
+
+If you want to clone the project into a different folder than `app` make sure to specify the destination in your clone command:
+
+```
+git clone https://github.com/vexilla/app.git YOUR_PREFERRED_FOLDER_NAME
+```
 
 ## Project setup
 ```
