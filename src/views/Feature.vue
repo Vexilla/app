@@ -106,7 +106,7 @@
             </div>
           </div>
         </div>
-        <div v-if="type === 'selective'">selective</div>
+        <div v-if="false && type === 'selective'">selective</div>
       </div>
     </div>
   </div>
