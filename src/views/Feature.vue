@@ -79,7 +79,7 @@
           <hr />
           <div class="threshold-wrapper">
             <div class="row">
-              <h4>Threshhold:</h4>
+              <h4>Threshold:</h4>
               <input
                 class="feature-input"
                 type="number"
@@ -148,7 +148,7 @@ import {
   Environment,
   Feature,
   VexillaFeature,
-  VexillaFeatureTypeString
+  VexillaFeatureTypeString,
 } from "@/store/app";
 import { mapState } from "vuex";
 
@@ -156,7 +156,7 @@ export default defineComponent({
   name: "Feature",
   data() {
     return {
-      type: "toggle"
+      type: "toggle",
     };
   },
   methods: {
@@ -177,8 +177,8 @@ export default defineComponent({
         environment,
         type: this.type,
         settings: {
-          value: toggled
-        } as VexillaFeature
+          value: toggled,
+        } as VexillaFeature,
       });
     },
     setToggle(environment: Environment, toggled: boolean) {
@@ -187,8 +187,8 @@ export default defineComponent({
         environment,
         type: this.type,
         settings: {
-          value: toggled
-        } as VexillaFeature
+          value: toggled,
+        } as VexillaFeature,
       });
     },
     handleSeedChange(environment: Environment, value: number) {
@@ -197,8 +197,8 @@ export default defineComponent({
         environment,
         type: this.type,
         settings: {
-          seed: +value / 100
-        } as VexillaFeature
+          seed: +value / 100,
+        } as VexillaFeature,
       });
     },
     handleThresholdChange(environment: Environment, value: number) {
@@ -207,8 +207,8 @@ export default defineComponent({
         environment,
         type: this.type,
         settings: {
-          value: +value
-        } as VexillaFeature
+          value: +value,
+        } as VexillaFeature,
       });
     },
     updateType(type: string) {
@@ -216,10 +216,10 @@ export default defineComponent({
         previous: this.feature,
         current: {
           ...this.feature,
-          type
-        }
+          type,
+        },
       });
-    }
+    },
   },
   created() {
     if (!this.feature) {
@@ -239,7 +239,7 @@ export default defineComponent({
     ...mapState("app", ["environments", "featureSettings"]),
     feature() {
       return this.$store.getters["app/featureByName"](this.$route.params.name);
-    }
+    },
   },
   watch: {
     feature(feature: Feature, oldFeature: Feature) {
@@ -247,10 +247,10 @@ export default defineComponent({
     },
     type(type, oldType) {
       this.updateType(type);
-    }
+    },
   },
   components: {
-    Toggle
-  }
+    Toggle,
+  },
 });
 </script>

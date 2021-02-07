@@ -95,7 +95,7 @@
           <hr />
           <div class="threshold-wrapper">
             <div class="row">
-              <h4>Threshhold:</h4>
+              <h4>Threshold:</h4>
               <input
                 class="feature-input"
                 type="number"
