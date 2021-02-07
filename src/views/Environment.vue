@@ -62,6 +62,13 @@
                   defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.seed
                 "
+                @input="
+                  updateDefaultEnvironmentValues(
+                    +$event.target.value,
+                    'gradual',
+                    'seed'
+                  )
+                "
               />
             </div>
             <div class="row">
@@ -105,6 +112,13 @@
                 :value="
                   defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.value
+                "
+                @input="
+                  updateDefaultEnvironmentValues(
+                    +$event.target.value,
+                    'gradual',
+                    'value'
+                  )
                 "
               />
             </div>

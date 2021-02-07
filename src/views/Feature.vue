@@ -55,6 +55,9 @@
                 min="0.01"
                 max=".099"
                 :value="getFeatureSettings(environment)?.seed"
+                @input="
+                  handleSeedChange(environment, $event.target.value * 100)
+                "
               />
             </div>
             <div class="row">
@@ -87,6 +90,7 @@
                 min="0"
                 max="100"
                 :value="getFeatureSettings(environment)?.value"
+                @input="handleThresholdChange(environment, $event.target.value)"
               />
             </div>
             <div class="row">
