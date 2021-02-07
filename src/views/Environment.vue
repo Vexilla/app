@@ -35,9 +35,7 @@
               defaultEnvironmentFeatureValues[environment.name]?.toggle
                 ?.value || false
             "
-            @toggled="
-              updateDefaultEnvironmentValues($event, 'toggle')
-            "
+            @toggled="updateDefaultEnvironmentValues($event, 'toggle')"
           />
           <button
             class="text-button"
@@ -166,13 +164,14 @@ import flagIcon from "@iconify-icons/dashicons/flag";
 import { defineComponent } from "vue";
 import { mapGetters, mapState } from "vuex";
 import Toggle from "@/components/Toggle.vue";
-import { VexillaFeatureTypeString } from "@/store/app";
+import { Environment, VexillaFeatureTypeString } from "@/store/app";
+import { VexillaFeatureType } from "@vexilla/client";
 
 export default defineComponent({
   name: "Environment",
   data() {
     return {
-      name: null as string | null
+      name: null as string | null,
     };
   },
   created() {
@@ -188,19 +187,24 @@ export default defineComponent({
         previous: this.environment,
         current: {
           ...this.environment,
-          name: this.name
-        }
+          name: this.name,
+        },
       });
 
       this.$router.push(`/environment/${this.name}`);
     },
+
+    randomizeSeed(environment: Environment) {
+      const randomValue = Math.floor(Math.random() * 100);
+      this.updateDefaultEnvironmentValues(randomValue / 100, "gradual", "seed");
+    },
+
     updateDefaultEnvironmentValues(
       value: boolean | number,
       featureType: VexillaFeatureTypeString,
       propName = "value"
     ) {
-
-      console.log('update value', value);
+      console.log("update value", value);
 
       this.$store.dispatch("app/updateDefaultEnvironmentValues", {
         environment: this.environment,
@@ -210,30 +214,30 @@ export default defineComponent({
             ...this.defaultEnvironmentFeatureValues[this.environment.name][
               featureType
             ],
-            [propName]: value
-          }
-        }
+            [propName]: value,
+          },
+        },
       });
-    }
+    },
   },
   watch: {
     environment(newEnvironment, oldEnvironment) {
       this.name = newEnvironment?.name;
-    }
+    },
   },
   computed: {
     ...mapState("app", [
       "hosting",
       "features",
-      "defaultEnvironmentFeatureValues"
+      "defaultEnvironmentFeatureValues",
     ]),
     environment() {
       const environment = this.$store.getters["app/environmentByName"](
         this.$route.params.name
       );
       return environment;
-    }
+    },
   },
-  components: { Toggle }
+  components: { Toggle },
 });
 </script>
