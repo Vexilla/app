@@ -4,13 +4,13 @@ import {
   VexillaToggleFeature,
   VexillaGradualFeature,
   VexillaFeatureType,
-  VexillaSelectiveFeature
+  VexillaSelectiveFeature,
 } from "@vexilla/client";
 import {
   HostingAdapter,
   HostingProvider,
   HostingConfig,
-  HostingStatus
+  HostingStatus,
 } from "@/services/hosting.service";
 
 import { isEqual, differenceWith } from "lodash/fp";
@@ -83,16 +83,16 @@ export default {
     hosting: {
       provider: null,
       config: null,
-      status: null
+      status: null,
     },
     defaultEnvironmentFeatureValues: {},
-    existingFeatures: null
+    existingFeatures: null,
   } as AppState,
   getters: {
     environmentByName: (state: AppState) => (name: string) =>
-      state.environments.find(environment => environment.name === name),
+      state.environments.find((environment) => environment.name === name),
     featureByName: (state: AppState) => (name: string) =>
-      state.features.find(feature => feature.name === name),
+      state.features.find((feature) => feature.name === name),
     getFeatureSettings: (state: AppState) => (
       feature: Feature,
       environment: Environment,
@@ -113,31 +113,26 @@ export default {
     },
 
     dataHasChanged: (state: AppState) => () => {
-      console.log(
-        "foo",
-        HostingService.formatPayloadFromState(state),
-        JSON.parse(JSON.stringify(state.existingFeatures))
-      );
       return !isEqual(
         state.existingFeatures,
         HostingService.formatPayloadFromState(state)
       );
-    }
+    },
   },
   mutations: {
     addFeature(state: AppState, newFeature: Feature) {
       state.features.push({
         ...newFeature,
-        type: "toggle"
+        type: "toggle",
       });
 
-      state.environments.forEach(environment => {
+      state.environments.forEach((environment) => {
         state.featuresSettings[
           `${newFeature.name}/${environment.name}/toggle`
         ] = {
           value: (state.defaultEnvironmentFeatureValues[
             environment.name
-          ] as any).toggle["value"]
+          ] as any).toggle["value"],
         } as any;
       });
     },
@@ -156,10 +151,10 @@ export default {
       const featureIndex = state.features.indexOf(previous);
       state.features[featureIndex] = {
         ...previous,
-        ...current
+        ...current,
       };
 
-      state.environments.forEach(environment => {
+      state.environments.forEach((environment) => {
         const currentFeatureSettings = {} as any;
 
         const previousFeatureSettings = state.featuresSettings[
@@ -193,7 +188,7 @@ export default {
           `${current.name}/${environment.name}/${current.type}`
         ] = {
           ...previousFeatureSettings,
-          ...currentFeatureSettings
+          ...currentFeatureSettings,
         };
       });
     },
@@ -202,16 +197,16 @@ export default {
       state.defaultEnvironmentFeatureValues[newEnvironment.name] = {
         toggle: {
           type: VexillaFeatureType.TOGGLE,
-          value: false
+          value: false,
         },
         gradual: {
           type: VexillaFeatureType.GRADUAL,
           seed: 0.01,
-          value: 0
+          value: 0,
         },
         selective: {
-          type: VexillaFeatureType.SELECTIVE
-        }
+          type: VexillaFeatureType.SELECTIVE,
+        },
       };
     },
     removeEnvironment(state: AppState, environment: Environment) {
@@ -222,7 +217,7 @@ export default {
       const { previous, current } = payload;
       const environmentIndex = state.environments.indexOf(previous);
 
-      state.features.forEach(feature => {
+      state.features.forEach((feature) => {
         // const previousEnvironmentSettings = ;
         state.featuresSettings[
           `${feature.name}/${current.name}/${feature.type}`
@@ -237,7 +232,7 @@ export default {
 
       state.environments[environmentIndex] = {
         ...previous,
-        ...current
+        ...current,
       };
     },
     setFeatureSettings(state: AppState, payload: FeatureSettingPayload) {
@@ -246,7 +241,7 @@ export default {
         state.featuresSettings[`${feature.name}/${environment.name}/${type}`];
       state.featuresSettings[`${feature.name}/${environment.name}/${type}`] = {
         ...currentSettings,
-        ...settings
+        ...settings,
       };
     },
     updateHostingProvider(state: AppState, hostingProvider: HostingProvider) {
@@ -267,7 +262,10 @@ export default {
     },
     setExistingFeatures(state: AppState, existingFeatures: any) {
       state.existingFeatures = existingFeatures;
-    }
+    },
+    importHostingAdapter(state: AppState, hostingAdapter: HostingAdapter) {
+      state.hosting = hostingAdapter;
+    },
   },
   actions: {
     addFeature(context: any, feature: Feature) {
@@ -310,7 +308,10 @@ export default {
     },
     setExistingFeatures(context: any, existingFeatures: any) {
       context.commit("setExistingFeatures", existingFeatures);
-    }
-  }
+    },
+    importHostingAdapter(context: any, hostingAdapter: HostingAdapter) {
+      context.commit("importHostingAdapter", hostingAdapter);
+    },
+  },
   // publishSettings(context: any, jsonPayload: any) {},
 };

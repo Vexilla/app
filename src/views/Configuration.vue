@@ -1,6 +1,39 @@
 <template>
   <div class="configuration-page">
-    <h1 class="title">Configuration</h1>
+    <div class="title-wrapper">
+      <h1 class="title">Configuration</h1>
+      <button
+        class="icon-button"
+        title="Import JSON"
+        aria-label="Import Config From JSON"
+        @click="importConfig()"
+      >
+        <Icon class="icon" :icon="icons.import" />
+        <span class="sr-only sr-mobile-only" aria-hidden="true">
+          Import config from JSON
+        </span>
+
+        <span class="non-mobile">
+          Import
+        </span>
+      </button>
+
+      <button
+        class="icon-button"
+        title="Export JSON"
+        aria-label="Export Config as JSON"
+        @click="exportConfig()"
+      >
+        <Icon class="icon" :icon="icons.export" />
+        <span class="sr-only sr-mobile-only" aria-hidden="true">
+          Export config as JSON
+        </span>
+
+        <span class="non-mobile">
+          Export
+        </span>
+      </button>
+    </div>
 
     <div class="field-row">
       <label>Hosting Provider</label>
@@ -240,8 +273,36 @@
   @apply max-w-screen-sm m-auto;
 }
 
+.title-wrapper {
+  @apply flex flex-row items-center;
+
+  & .icon {
+    @apply mr-2;
+  }
+
+  & button {
+    @apply px-2 py-1 m-2 flex-row capitalize text-center;
+
+    &.icon-button {
+      @apply h-9;
+
+      & .icon {
+        @apply m-0 mr-2;
+      }
+    }
+  }
+}
+
 .title {
-  @apply text-left;
+  @apply text-left mr-6;
+}
+
+.hosting-options {
+  @apply justify-start;
+
+  & label {
+    @apply m-3;
+  }
 }
 
 .field {
@@ -253,25 +314,42 @@ textarea {
 
   min-height: 6rem;
 }
+
+.non-mobile {
+  @apply hidden md:inline;
+}
 </style>
 
 <script lang="ts">
-import { Icon, InlineIcon } from "@iconify/vue";
-import flagIcon from "@iconify-icons/dashicons/flag";
+import { Icon } from "@iconify/vue";
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
+import importIcon from "@iconify-icons/entypo/folder";
+import exportIcon from "@iconify-icons/entypo/save";
+import { AppState } from "@/store/app";
+import { saveAs } from "file-saver";
 
 export default defineComponent({
   name: "Configuration",
-  components: {},
+  data() {
+    return {
+      icons: {
+        import: importIcon,
+        export: exportIcon,
+      },
+    };
+  },
+  components: {
+    Icon,
+  },
   computed: {
-    ...mapState("app", ["hosting"])
+    ...mapState("app", ["hosting"]),
   },
   methods: {
     ...mapActions("app", ["updateHostingProvider"]),
     updateHostingConfig(propName: string, configValue: string) {
       const payload = {
-        ...this.hosting?.config
+        ...this.hosting?.config,
       };
       payload[propName] = configValue;
       this.$store.dispatch("app/updateHostingConfig", payload);
@@ -280,7 +358,32 @@ export default defineComponent({
     selectText(event: any) {
       console.log({ event });
       event.target.select();
-    }
-  }
+    },
+    exportConfig() {
+      const appState = (this.$store as any).state.app as AppState;
+      const config = appState.hosting;
+      saveAs(
+        new Blob([JSON.stringify(config)], { type: "application/json" }),
+        "vexilla-config.json"
+      );
+    },
+    importConfig() {
+      const inputElement = document.createElement("input");
+      inputElement.type = "file";
+      const listener = (changeEvent: any) => {
+        const reader = new FileReader();
+        reader.onload = (readerEvent: any) => {
+          const config = JSON.parse(readerEvent.target.result);
+          this.$store.dispatch("app/importHostingAdapter", config);
+        };
+        reader.readAsText(changeEvent.target.files[0]);
+        inputElement.removeEventListener("change", listener);
+      };
+
+      inputElement.addEventListener("change", listener);
+
+      inputElement.click();
+    },
+  },
 });
 </script>

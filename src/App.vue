@@ -309,6 +309,10 @@ button {
       }
     }
   }
+
+  &.mobile-only {
+    @apply md:hidden;
+  }
 }
 </style>
 
@@ -335,9 +339,9 @@ export default defineComponent({
       icons: {
         flag: flagIcon,
         openMenu: openMenuIcon,
-        closeMenu: closeMenuIcon
+        closeMenu: closeMenuIcon,
       },
-      fetchInterval: null as null | NodeJS.Timeout
+      fetchInterval: null as null | NodeJS.Timeout,
     };
   },
   created() {
@@ -352,7 +356,7 @@ export default defineComponent({
   computed: {
     ...mapState("app", ["hosting"]),
     ...mapState("ui", ["sidebarShowing"]),
-    ...mapGetters("app", ["configIsValid", "dataHasChanged"])
+    ...mapGetters("app", ["configIsValid", "dataHasChanged"]),
   },
   methods: {
     ...mapActions("ui", ["toggleSidebarShowing"]),
@@ -372,11 +376,11 @@ export default defineComponent({
 
         this.$store.dispatch("app/setExistingFeatures", result.data);
       }
-    }
+    },
   },
   components: {
     Sidebar,
-    Icon
-  }
+    Icon,
+  },
 });
 </script>
