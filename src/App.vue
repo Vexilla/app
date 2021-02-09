@@ -1,4 +1,5 @@
 <template>
+  <Modal />
   <header class="header">
     <a href="/" class="header-link">
       <h1 class="header-heading">
@@ -324,11 +325,13 @@ import flagIcon from "@iconify-icons/dashicons/flag";
 
 import { defineComponent } from "vue";
 import Sidebar from "@/components/Sidebar.vue";
+import Modal from "@/components/Modal.vue";
 import { mapActions, mapGetters, mapState } from "vuex";
 
 import { AppState } from "@/store/app";
 
 import { HostingService, HostingStatusType } from "@/services/hosting.service";
+import { ModalName } from "./store/ui";
 
 export default defineComponent({
   name: "App",
@@ -342,11 +345,20 @@ export default defineComponent({
         closeMenu: closeMenuIcon,
       },
       fetchInterval: null as null | NodeJS.Timeout,
+      lastInteraction: Date.now(),
     };
   },
   created() {
     this.fetchInterval = setInterval(this.synchronize, 30000);
     this.synchronize();
+
+    document.addEventListener("click", this.resetTimer);
+
+    document.addEventListener("mousemove", this.resetTimer);
+
+    document.addEventListener("scroll", this.resetTimer);
+
+    document.addEventListener("keypress", this.resetTimer);
   },
   unmounted() {
     if (this.fetchInterval) {
@@ -360,6 +372,9 @@ export default defineComponent({
   },
   methods: {
     ...mapActions("ui", ["toggleSidebarShowing"]),
+    resetTimer() {
+      this.lastInteraction = Date.now();
+    },
     publishChanges() {
       const appState = (this.$store as any).state.app as AppState;
       const payload = HostingService.formatPayloadFromState(appState);
@@ -368,7 +383,11 @@ export default defineComponent({
     },
     async synchronize() {
       const isValid = this.$store.getters["app/configIsValid"]();
-      if (isValid) {
+
+      if (Date.now() > this.lastInteraction + 600_000) {
+        this.$store.dispatch("ui/setCurrentModal", ModalName.InactivityWarning);
+        this.$store.dispatch("ui/setModalShowing", true);
+      } else if (isValid) {
         const result = await (HostingService.fetchExistingFeatures(
           (this.$store.state as any).app.hosting
         ) as any);
@@ -381,6 +400,7 @@ export default defineComponent({
   components: {
     Sidebar,
     Icon,
+    Modal,
   },
 });
 </script>
