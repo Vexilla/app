@@ -37,7 +37,7 @@
             </button>
             <Toggle
               :toggled="getFeatureSettings(environment)?.value"
-              @change="handleToggleChange(environment, $event.target.checked)"
+              @change="handleToggleChange(environment, $event)"
             />
             <button class="text-button" @click="setToggle(environment, true)">
               On
@@ -176,6 +176,7 @@ export default defineComponent({
       );
     },
     handleToggleChange(environment: Environment, toggled: boolean) {
+      console.log("inside handle toggle change", toggled);
       this.$store.dispatch("app/setFeatureSettings", {
         feature: this.feature,
         environment,

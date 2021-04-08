@@ -1,9 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="inner-wrapper">
-      <SwitchGroup as="div" class="switch-group"
+      <SwitchGroup
+        as="div"
+        class="switch-group"
         :class="{
-          labelled: label
+          labelled: label,
         }"
       >
         <SwitchLabel>{{ label }}</SwitchLabel>
@@ -63,23 +65,23 @@ export default defineComponent({
   name: "Toggle",
   props: {
     toggled: Boolean,
-    label: String
+    label: String,
   },
   data: function() {
     return {
-      innerToggled: this.toggled
+      innerToggled: this.toggled,
     };
   },
   components: {
     SwitchGroup,
     Switch,
-    SwitchLabel
+    SwitchLabel,
   },
   methods: {
     changed: function(toggled: boolean) {
-      console.log('changed', toggled);
-      this.$emit("toggled", toggled);
-    }
+      console.log("changed", toggled);
+      this.$emit("change", toggled);
+    },
   },
   created() {
     this.innerToggled = this.toggled;
@@ -89,9 +91,9 @@ export default defineComponent({
   },
   watch: {
     innerToggled(toggled) {
-      console.log('watch', toggled);
-      this.$emit("toggled", toggled);
-    }
-  }
+      console.log("watch", toggled);
+      this.$emit("change", toggled);
+    },
+  },
 });
 </script>
