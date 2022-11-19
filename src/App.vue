@@ -132,7 +132,8 @@ body {
 }
 
 .status-wrapper {
-  @apply text-right;
+  @apply text-center m-2;
+
 
   @media (min-width: 768px) {
     @apply p-4;
@@ -146,7 +147,7 @@ body {
 }
 
 .status-message {
-  @apply block p-5 md:hidden  rounded-lg bg-primary-color-light;
+  @apply block p-5 md:hidden  rounded-lg bg-primary-color-light m-2;
 
   &.error {
     @apply text-red-500 bg-red-100;
@@ -164,7 +165,8 @@ body {
 }
 
 .page-wrapper {
-  @apply h-auto  bg-secondary-color rounded-lg w-1/2  mr-auto ml-auto p-6;
+  @apply h-auto  bg-secondary-color rounded-lg  lg:w-1/2 w-full  mr-auto ml-auto p-6;
+
 
 
 }
@@ -182,7 +184,7 @@ input[type="tel"] {
   @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
 
   &:focus {
-    @apply border-2 border-indigo-500 outline-none;
+    @apply border-2 border-indigo-500;
   }
 
   &:invalid {
@@ -250,7 +252,7 @@ button {
 }
 
 .feature-slider {
-  @apply flex-grow ;
+  @apply flex-grow text-primary-color ;
 }
 
 .radio-options {
@@ -261,12 +263,16 @@ button {
     @apply p-2 text-center border border-solid border-2 border-gray-500 outline-none m-1 rounded;
 
     &.selected {
-      @apply border-indigo-500 ;
+      @apply border-indigo-500;
     }
   }
 
   & input[type="radio"] {
-    @apply block my-2 mx-auto sm:text-primary-color;
+    @apply block border-primary-color my-2 mx-auto   ; 
+
+    &:checked{
+      @apply bg-primary-color
+    }
   }
 
   & :hover{
@@ -292,7 +298,12 @@ button {
     & .field {
       @apply pl-4 flex-grow ;
       & > input {
-        @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full
+        @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
+        &:focus {
+          @apply border-2 border-indigo-500;
+        }
+      
+ 
       }
     }
   }

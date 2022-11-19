@@ -1,8 +1,8 @@
 <template>
   <div class="configuration-page">
     <div class="title-wrapper">
-      
       <h1 class="title">Configuration</h1>
+      <div class="title-button-wrapper">
       <button
         class="icon-button"
         title="Import JSON"
@@ -34,6 +34,7 @@
           Export
         </span>
       </button>
+    </div>
     </div>
 
     <div class="field-row feature">
@@ -273,11 +274,13 @@
 
 <style lang="postcss">
 .configuration-page {
-  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center p-6; 
+  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center;  
 }
-
+.title-button-wrapper{
+  @apply flex 
+}
 .title-wrapper {
-  @apply flex flex-row items-center justify-center flex-wrap;
+  @apply flex flex-col items-center justify-center flex-wrap;
 
   & .icon {
     @apply mr-2;
@@ -300,7 +303,7 @@
 }
 
 .title {
-  @apply text-left mr-6;
+  @apply text-center
 }
 
 .hosting-options {

@@ -2,7 +2,7 @@
   <div class="environment-page">
     <h1 class="title">Environment: {{ environment?.name }}</h1>
 
-
+    <div class= "form-section">
       <div class="environment-title">
         <label>
           Name
@@ -16,10 +16,10 @@
         Save
       </button>
       </div>
-
+    </div>
     
 
-    <hr />
+
     <h2>Default Values</h2>
     <div>
       <h3>Toggle</h3>
@@ -163,24 +163,22 @@
 
 <style lang="postcss">
 .environment-page {
-  @apply max-w-screen-sm m-auto bg-secondary-color h-auto;
+  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center;  
 }
 .environment-title{
-  @apply flex items-center
-}
+  @apply flex items-center border-2 border-primary-color }
 .environment-title > label {
-  
-  @apply m-4 flex-grow
+    @apply m-4 flex-grow
 }
 .feature-input{
  @apply ml-4
 }
 .title {
-  @apply text-left;
+  @apply text-center;
 }
 
 .save-button {
-  @apply mt-4;
+  @apply mt-4
 }
 </style>
 
