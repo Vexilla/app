@@ -23,10 +23,13 @@
             :to="'/configuration'"
           >
             <span class="status-message error">
-              Config is invalid
+              Config is currently invalid
             </span>
           </router-link>
+        
         </div>
+        
+        
         <span v-if="!dataHasChanged()" class="status-message">
           No changes to push.
         </span>
@@ -66,6 +69,16 @@
 </template>
 
 <style lang="postcss">
+
+:root{
+  
+    --primary-color: rgb(99 102 241);
+    --primary-color-light: rgb(224 231 255);
+
+
+    --secondary-color: rgb(243 244 246); 
+  
+}
 * {
   box-sizing: border-box;
 }
@@ -82,7 +95,7 @@ body {
 }
 
 .header {
-  @apply flex flex-row justify-between items-center p-5 fixed z-10 bg-white w-full max-w-screen-lg mx-auto;
+  @apply flex flex-row justify-between items-center p-2 fixed z-10 bg-white w-full mx-auto;
 }
 
 .flex {
@@ -94,7 +107,7 @@ body {
 }
 
 .logo-wrapper {
-  @apply w-12 h-12 rounded-full p-2 bg-blue-500 flex justify-center;
+  @apply w-12 h-12 rounded-full p-2 bg-primary-color flex justify-center;
 }
 
 .logo-image {
@@ -133,31 +146,31 @@ body {
 }
 
 .status-message {
-  @apply block p-0 md:hidden;
+  @apply block p-5 md:hidden  rounded-lg bg-primary-color-light;
 
   &.error {
-    @apply text-red-500;
+    @apply text-red-500 bg-red-100;
   }
 
   &.blue {
-    @apply text-blue-500;
+    @apply text-indigo-500;
   }
 }
 
 .layout {
-  @apply flex flex-row h-full relative;
+  @apply flex flex-row relative transition-all;
 
   padding-top: 84px;
 }
 
 .page-wrapper {
-  @apply p-4 w-full overflow-y-scroll pb-24;
+  @apply h-auto  bg-secondary-color rounded-lg w-1/2  mr-auto ml-auto p-6;
 
-  height: calc(100vh - 84px);
+
 }
 
 .mobile-menu-button {
-  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-blue-700 rounded shadow hover:shadow-lg hover:bg-blue-800 focus:outline-none focus:shadow-lg focus:bg-blue-800 md:hidden text-4xl flex ml-4;
+  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-indigo-700 rounded shadow hover:shadow-lg hover:bg-indigo-800 focus:outline-none focus:shadow-lg focus:bg-indigo-800 md:hidden text-4xl flex ml-4;
 }
 
 textarea,
@@ -166,10 +179,10 @@ input[type="url"],
 input[type="password"],
 input[type="number"],
 input[type="tel"] {
-  @apply flex w-full rounded-lg p-4 border-2 mr-0 text-gray-800 border-gray-200 bg-white;
+  @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
 
   &:focus {
-    @apply border-2 border-blue-500 outline-none;
+    @apply border-2 border-indigo-500 outline-none;
   }
 
   &:invalid {
@@ -183,14 +196,14 @@ textarea.blurred {
 }
 
 button {
-  @apply px-8 rounded-lg bg-blue-400 text-white font-bold p-4 uppercase border-blue-400 border-t border-b border-r text-xl flex flex-col items-center justify-center cursor-pointer;
+  @apply px-8 rounded-lg bg-primary-color text-white font-bold p-4 uppercase border-indigo-500 border-t border-b border-r text-xl flex flex-col items-center justify-center cursor-pointer;
 
   &:focus {
-    @apply bg-blue-500 outline-none border-blue-500;
+    @apply bg-primary-color outline-none border-indigo-500;
   }
 
   &:active {
-    @apply bg-blue-800 border-blue-800;
+    @apply bg-indigo-800 border-indigo-800;
   }
 
   &:disabled {
@@ -198,14 +211,14 @@ button {
   }
 
   &.mini {
-    @apply p-1 px-2 m-2 self-center bg-blue-500 border-blue-500 text-base;
+    @apply p-1 px-2 m-2 self-center bg-primary-color border-indigo-500 text-base;
 
     &:focus {
-      @apply bg-blue-700 outline-none border-blue-700;
+      @apply bg-indigo-700 outline-none border-indigo-700;
     }
 
     &:active {
-      @apply bg-blue-900 border-blue-900;
+      @apply bg-indigo-900 border-indigo-900;
     }
   }
 }
@@ -229,9 +242,7 @@ button {
 .row {
   @apply w-full flex flex-row items-center justify-start md:pr-8 md:pl-8;
 
-  & .feature-input {
-    @apply p-2 mx-4 flex-shrink w-auto;
-  }
+
 }
 
 .slider-label {
@@ -239,27 +250,32 @@ button {
 }
 
 .feature-slider {
-  @apply flex-grow;
+  @apply flex-grow ;
 }
 
 .radio-options {
   @apply flex flex-row justify-evenly;
 
+
   & label {
     @apply p-2 text-center border border-solid border-2 border-gray-500 outline-none m-1 rounded;
 
     &.selected {
-      @apply border-blue-500;
+      @apply border-indigo-500 ;
     }
   }
 
   & input[type="radio"] {
-    @apply block my-2 mx-auto;
+    @apply block my-2 mx-auto sm:text-primary-color;
+  }
+
+  & :hover{
+    cursor: pointer
   }
 }
 
 .form-section {
-  @apply border-solid border-0 border-b-2 py-8 px-4;
+  @apply border-solid border-0 border-b-2 border-indigo-300 py-8 px-4;
 
   &:last-child {
     @apply border-none border-0;
@@ -267,14 +283,17 @@ button {
 
   &.inline-field,
   & .inline-field {
-    @apply flex flex-row justify-start items-start;
+    @apply flex flex-row justify-center items-center;
 
     & h3 {
       @apply m-0 w-16 md:w-36 text-right pt-0;
     }
 
     & .field {
-      @apply pl-4 flex-grow;
+      @apply pl-4 flex-grow ;
+      & > input {
+        @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full
+      }
     }
   }
 }

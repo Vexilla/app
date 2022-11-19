@@ -1,6 +1,7 @@
 <template>
   <div class="configuration-page">
     <div class="title-wrapper">
+      
       <h1 class="title">Configuration</h1>
       <button
         class="icon-button"
@@ -35,7 +36,7 @@
       </button>
     </div>
 
-    <div class="field-row">
+    <div class="field-row feature">
       <label>Hosting Provider</label>
       <div class="hosting-options radio-options">
         <label :class="{ selected: hosting.provider === 's3' }">
@@ -102,7 +103,9 @@
               required
             />
           </div>
+          
         </label>
+     
       </div>
       <div class="form-section">
         <label class="inline-field">
@@ -270,18 +273,18 @@
 
 <style lang="postcss">
 .configuration-page {
-  @apply max-w-screen-sm m-auto;
+  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center p-6; 
 }
 
 .title-wrapper {
-  @apply flex flex-row items-center;
+  @apply flex flex-row items-center justify-center flex-wrap;
 
   & .icon {
     @apply mr-2;
   }
 
   & button {
-    @apply px-2 py-1 m-2 flex-row capitalize text-center;
+    @apply px-2 py-1 m-2 flex-row capitalize text-center shadow-xl;
 
     &.icon-button {
       @apply h-9;
@@ -291,6 +294,9 @@
       }
     }
   }
+}
+.feature{
+  @apply flex flex-col items-center
 }
 
 .title {

@@ -2,7 +2,7 @@
   <div class="feature-page">
     <h1 class="title">Feature: {{ feature?.name }}</h1>
 
-    <div class="field-row">
+    <div class="field-row feature">
       <label>Feature Type</label>
       <div class="feature-type-options radio-options">
         <label>
@@ -117,15 +117,16 @@
 </template>
 
 <style lang="postcss">
+
 .feature-page {
   @apply max-w-screen-sm m-auto;
 }
-
+ 
 .title {
   @apply text-left;
 }
-
-.feature-type-options {
+.feature{
+  @apply flex flex-col items-center justify-center text-center
 }
 
 .environments {

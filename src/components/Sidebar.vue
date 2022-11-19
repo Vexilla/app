@@ -9,8 +9,9 @@
             :to="'/configuration'"
           >
             <span class="status-message error">
-              Config is invalid
+              Config is currently invalid
             </span>
+     
           </router-link>
         </div>
         <span v-if="!dataHasChanged()" class="status-message">
@@ -83,7 +84,7 @@
       
     </div>
 
-    <h2>Environments ({{ environments?.length }})</h2>
+    <h2 class="sidebar-title">Environments ({{ environments?.length }})</h2>
     <ManageList
       item-label="Environment"
       namedRoute="Environment"
@@ -93,7 +94,7 @@
       @navigated="toggleSidebarShowing"
     ></ManageList>
     <hr class="separator" />
-    <h2>Features ({{ features?.length }})</h2>
+    <h2 class="sidebar-title">Features ({{ features?.length }})</h2>
     <ManageList
       item-label="Feature"
       namedRoute="Feature"
@@ -207,17 +208,22 @@ export default defineComponent({
 
 <style lang="postcss" scoped>
 .sidebar {
-  @apply bg-gray-50
-    w-screen md:w-96 h-full fixed md:relative transform md:transform-none translate-x-full transition-all p-4 overflow-y-scroll pb-16 z-10;
 
-  height: calc(100vh - 84px);
+  @apply bg-secondary-color rounded-lg 
+  w-screen md:w-1/3 ml-2 fixed md:relative transform md:transform-none p-4 translate-x-full transition-all p-4 z-10;
+
 }
-
+.scrollbar-hide::-webkit-scrollbar {
+  display:none 
+}
 .logo{
   @apply text-2xl
 }
+.sidebar-title{
+  @apply text-center
+}
 .config-button{
-  @apply flex justify-evenly m-4 w-full flex-row
+  @apply flex justify-evenly flex-row
 }
 
 .showing {
@@ -229,10 +235,10 @@ export default defineComponent({
 }
 
 .toolbar {
-  @apply sticky w-0 -top-4 left-0 right-0 -ml-4 -mt-4 z-10 bg-gray-50;
+  @apply sticky left-0 right-0  z-10;
 
-  width: calc(100% + 2rem);
 }
+
 
 .publish-row {
   @apply flex justify-center ;

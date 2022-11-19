@@ -4,7 +4,7 @@
       <label> Add {{ itemLabel }} </label>
       <div class="input-button-combo">
         <input
-          :placeholder="'Add ' + itemLabel"
+          :placeholder="itemLabel + ' title'"
           type="text"
           v-model="inputText"
           ref="inputField"
@@ -40,11 +40,11 @@ label {
   @apply flex flex-row w-full;
 
   & input {
-    @apply flex w-full rounded-r-none;
+    @apply  px-3 py-3  text-primary-color relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full
   }
 
   & button {
-    @apply w-16 rounded-l-none;
+    @apply w-16  ml-2 shadow outline-none ;
   }
 }
 
@@ -74,7 +74,7 @@ label {
 
       &:hover,
       &:focus {
-        @apply outline-none text-blue-500;
+        @apply outline-none text-indigo-500;
 
         &::before {
           @apply text-gray-500;

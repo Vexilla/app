@@ -2,22 +2,23 @@
   <div class="environment-page">
     <h1 class="title">Environment: {{ environment?.name }}</h1>
 
-    <div>
-      <div>
+
+      <div class="environment-title">
         <label>
           Name
-          <input v-model="name" type="text" />
+          <input v-model="name" type="text" class="input" />
         </label>
-      </div>
-
-      <button
+        <button
         class="save-button"
         @click="save()"
         :disabled="environment?.name === name"
       >
         Save
       </button>
-    </div>
+      </div>
+
+    
+
     <hr />
     <h2>Default Values</h2>
     <div>
@@ -51,13 +52,13 @@
         <div>
           <div class="seed-wrapper">
             <div class="row">
-              <h4>Seed: {{ environment?.name }}</h4>
+              <h4>Seed:</h4>
               <input
                 class="feature-input"
                 type="number"
                 step="0.01"
                 min="0.01"
-                max=".099"
+                max=".99"
                 :value="
                   defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.seed
@@ -105,6 +106,7 @@
               <h4>Threshold:</h4>
               <input
                 class="feature-input"
+            
                 type="number"
                 step="1"
                 min="0"
@@ -132,6 +134,7 @@
                   defaultEnvironmentFeatureValues[environment?.name]?.gradual
                     ?.value
                 "
+                color="orange"
                 type="range"
                 min="0"
                 max="100"
@@ -160,9 +163,18 @@
 
 <style lang="postcss">
 .environment-page {
-  @apply max-w-screen-sm m-auto;
+  @apply max-w-screen-sm m-auto bg-secondary-color h-auto;
 }
-
+.environment-title{
+  @apply flex items-center
+}
+.environment-title > label {
+  
+  @apply m-4 flex-grow
+}
+.feature-input{
+ @apply ml-4
+}
 .title {
   @apply text-left;
 }
