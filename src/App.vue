@@ -1,7 +1,7 @@
 <template>
   <Modal />
   <header class="header">
-    <a href="/" class="header-link">
+    <a href="/" class="flex">
       <h1 class="header-heading">
         <span class="logo-wrapper">
           <img class="logo-image" src="img/logo-white.svg" />
@@ -74,6 +74,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: sans-serif
 }
 
 #app {
@@ -84,7 +85,7 @@ body {
   @apply flex flex-row justify-between items-center p-5 fixed z-10 bg-white w-full max-w-screen-lg mx-auto;
 }
 
-.header-link {
+.flex {
   @apply no-underline;
 }
 
@@ -93,7 +94,7 @@ body {
 }
 
 .logo-wrapper {
-  @apply w-12 h-12 rounded-full p-2 bg-blue-500;
+  @apply w-12 h-12 rounded-full p-2 bg-blue-500 flex justify-center;
 }
 
 .logo-image {
@@ -114,7 +115,7 @@ body {
 }
 
 .publish-row {
-  @apply flex flex-row items-center;
+  @apply flex flex-row items-center justify-center;
 }
 
 .status-wrapper {

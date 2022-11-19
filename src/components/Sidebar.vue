@@ -71,12 +71,16 @@
         class="config-link"
         @click="goToConfig($event)"
       >
-        <span>
+      
+      <button class="config-button">
+    
           <Icon :icon="icons.settings" class="logo" />
-          Configuration
-        </span>
-        <span> > </span>
-      </router-link>
+          <span>Configuration</span>
+  
+        </button>
+  
+    </router-link>
+      
     </div>
 
     <h2>Environments ({{ environments?.length }})</h2>
@@ -209,6 +213,13 @@ export default defineComponent({
   height: calc(100vh - 84px);
 }
 
+.logo{
+  @apply text-2xl
+}
+.config-button{
+  @apply flex justify-evenly m-4 w-full flex-row
+}
+
 .showing {
   @apply translate-x-0;
 }
@@ -224,7 +235,7 @@ export default defineComponent({
 }
 
 .publish-row {
-  @apply flex justify-center md:justify-end;
+  @apply flex justify-center ;
 
   & .icon {
     @apply mr-2;
@@ -250,6 +261,6 @@ export default defineComponent({
 }
 
 .config-link {
-  @apply no-underline text-black bg-blue-400 text-white p-4 w-full flex flex-row justify-between;
+  @apply no-underline text-black  text-white w-full flex-row flex justify-evenly;
 }
 </style>
