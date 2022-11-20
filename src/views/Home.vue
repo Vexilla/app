@@ -16,7 +16,7 @@
 
 <style lang="postcss" scoped>
 .home {
-  @apply flex flex-col justify-start items-center h-full w-full;
+  @apply flex flex-col justify-center items-center h-3/4 w-full lg:w-3/4 m-auto rounded-lg bg-secondary-color;
 }
 
 .title {
@@ -25,6 +25,7 @@
 
 .logo {
   font-size: 420px;
+  @apply text-indigo-500
 }
 
 .getting-started-intro {
@@ -32,6 +33,7 @@
 }
 
 .getting-started-list {
+  list-style: none;
   & li {
     @apply text-xl mb-4;
   }

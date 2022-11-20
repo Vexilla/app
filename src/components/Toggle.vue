@@ -45,7 +45,7 @@
   @apply relative inline-flex flex-shrink-0 p-0 h-6 items-start transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:shadow bg-gray-200;
 
   &.toggled {
-    @apply bg-blue-500;
+    @apply bg-primary-color;
   }
 }
 
