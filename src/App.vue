@@ -15,44 +15,7 @@
       <a class="nav-link" href="/documentation">Documentation </a>
     </nav>
     <div class="publish-row">
-      <div class="status-wrapper">
-        <div>
-          <router-link
-            class="status-link"
-            v-if="!configIsValid()"
-            :to="'/configuration'"
-          >
-            <span class="status-message error">
-              Config is currently invalid
-            </span>
-          </router-link>
-        
-        </div>
-        
-        
-        <span v-if="!dataHasChanged()" class="status-message">
-          No changes to push.
-        </span>
-        <span v-if="dataHasChanged()" class="status-message blue">
-          Changes to push.
-        </span>
-        <span
-          class="status-message"
-          :class="hosting?.status?.type"
-          v-if="hosting?.status?.message && !hosting?.status?.route"
-        >
-          {{ hosting?.status?.message }}
-        </span>
-        <router-link
-          class="status-link"
-          v-if="hosting?.status?.route"
-          :to="hosting?.status?.route"
-        >
-          <span class="status-message" :class="hosting?.status?.type">
-            {{ hosting?.status?.message }}
-          </span>
-        </router-link>
-      </div>
+      
 
       <button class="mobile-menu-button" @click="toggleSidebarShowing">
         <Icon v-if="!sidebarShowing" :icon="icons.openMenu" />
@@ -98,6 +61,7 @@ body {
   @apply flex flex-row justify-between items-center p-2 z-10 bg-white w-full mx-auto;
 }
 
+
 .flex {
   @apply no-underline;
 }
@@ -132,7 +96,7 @@ body {
 }
 
 .status-wrapper {
-  @apply text-center m-2 hidden md:relative;
+  @apply text-center m-2 hidden md:block;
 
 
   @media (min-width: 768px) {
@@ -147,7 +111,7 @@ body {
 }
 
 .status-message {
-  @apply block p-5 md:hidden  rounded-lg bg-great-blue-100 m-2;
+  @apply p-5 rounded-lg bg-great-blue-100 m-2;
 
   &.error {
     @apply text-red-500 bg-red-100;

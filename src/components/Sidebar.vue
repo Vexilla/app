@@ -262,9 +262,7 @@ export default defineComponent({
   @apply text-center;
 }
 
-.status-message {
-  @apply hidden md:block;
-}
+
 
 .config-link {
   @apply no-underline text-black  text-white w-full flex-row flex justify-evenly;
