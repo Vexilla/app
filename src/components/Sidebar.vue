@@ -233,7 +233,7 @@ export default defineComponent({
 }
 
 .toolbar {
-  @apply sticky left-0 right-0  z-10 flex flex-col h-1/2 justify-center;
+  @apply sticky left-0 right-0  z-10 flex flex-col justify-start;
 
   & * {
     @apply m-2

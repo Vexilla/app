@@ -50,13 +50,15 @@ label {
 }
 
 .list {
-  @apply list-none p-0;
+  @apply list-none p-0 flex flex-row flex-wrap justify-start items-center;
 
   & .item {
-    @apply flex flex-row h-20 pl-4;
+    @apply flex flex-row h-20 pl-4 bg-white rounded-lg  m-2 w-1/4 ;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
+
 
     & .item-link {
-      width: calc(100% - 3rem);
+      @apply w-2/3 pl-5;
     }
 
     & .item-name {
@@ -84,7 +86,7 @@ label {
     }
 
     & button {
-      @apply w-8 h-8 p-2 m-2 self-center bg-red-500 border-red-500;
+      @apply w-2/6 h-1/2 p-2 m-2 self-center bg-red-100 border-none outline-none;
 
       &:focus {
         @apply bg-red-700 outline-none border-red-700;

@@ -202,6 +202,9 @@ button {
   }
 }
 
+.delete-button {
+  @apply text-red-400 rounded-full
+}
 .seed-wrapper {
   @apply flex flex-row flex-wrap;
 }
@@ -254,7 +257,7 @@ button {
 
   &.inline-field,
   & .inline-field {
-    @apply flex flex-row justify-center items-center;
+    
 
     & h3 {
       @apply m-0 w-1/3 text-right pt-0;
