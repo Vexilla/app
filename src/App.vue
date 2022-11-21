@@ -95,7 +95,7 @@ body {
 }
 
 .header {
-  @apply flex flex-row justify-between items-center p-2 fixed z-10 bg-white w-full mx-auto;
+  @apply flex flex-row justify-between items-center p-2 z-10 bg-white w-full mx-auto;
 }
 
 .flex {
@@ -132,7 +132,7 @@ body {
 }
 
 .status-wrapper {
-  @apply text-center m-2;
+  @apply text-center m-2 hidden md:relative;
 
 
   @media (min-width: 768px) {
@@ -161,7 +161,6 @@ body {
 .layout {
   @apply flex flex-row relative transition-all justify-around	;
 
-  padding-top: 84px;
 }
 
 .page-wrapper {
