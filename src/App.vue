@@ -205,7 +205,7 @@ button {
 }
 
 .delete-button {
-  @apply text-red-400 rounded-full
+  @apply text-red-400 rounded-full h-auto w-1/6
 }
 .seed-wrapper {
   @apply flex flex-row flex-wrap;
