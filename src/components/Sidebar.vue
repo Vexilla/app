@@ -230,6 +230,7 @@ export default defineComponent({
   @apply text-center}
 .config-button{
   @apply flex justify-evenly flex-row bg-great-blue shadow-md
+
 }
 
 .showing {

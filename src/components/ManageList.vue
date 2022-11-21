@@ -52,7 +52,9 @@ label {
     @apply w-16  ml-2 shadow outline-none ;
   }
 }
-
+.router-link-exact-active{
+  @apply bg-great-blue-50 rounded-lg;
+}
 .list {
   @apply list-none p-0 flex flex-row flex-wrap justify-start items-center;
 
@@ -71,9 +73,7 @@ label {
     & .item-link {
      @apply items-center flex justify-start p-2 h-full
     }
-    .router-link-active{
-      @apply bg-red-500; 
-    }
+
 
     & .item-name {
       @apply m-0  pointer-events-none truncate;
