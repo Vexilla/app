@@ -53,7 +53,7 @@
                 type="number"
                 step="0.01"
                 min="0.01"
-                max=".099"
+                max=".99"
                 :value="getFeatureSettings(environment)?.seed"
                 @input="
                   handleSeedChange(environment, $event.target.value * 100)
