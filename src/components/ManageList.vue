@@ -40,7 +40,7 @@ label {
   @apply flex flex-row w-full;
 
   & input {
-    @apply  px-3 py-3  text-primary-color relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full
+    @apply  px-3 py-3  text-great-blue relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full
   }
 
   & button {
@@ -74,7 +74,7 @@ label {
 
       &:hover,
       &:focus {
-        @apply outline-none text-indigo-500;
+        @apply outline-none text-great-blue-500;
 
         &::before {
           @apply text-gray-500;

@@ -72,11 +72,11 @@
 
 :root{
   
-    --primary-color: rgb(99 102 241);
-    --primary-color-light: rgb(224 231 255);
+    --primary-color:  rgb(99, 177, 250);
+    --primary-color-light: rgba(0, 110, 255, 0.514);
 
 
-    --secondary-color: rgb(243 244 246); 
+    --secondary-color: #f3f4f6; 
   
 }
 * {
@@ -107,7 +107,7 @@ body {
 }
 
 .logo-wrapper {
-  @apply w-12 h-12 rounded-full p-2 bg-primary-color flex justify-center;
+  @apply w-12 h-12 rounded-full p-2 bg-great-blue flex justify-center;
 }
 
 .logo-image {
@@ -147,14 +147,14 @@ body {
 }
 
 .status-message {
-  @apply block p-5 md:hidden  rounded-lg bg-primary-color-light m-2;
+  @apply block p-5 md:hidden  rounded-lg bg-great-blue-100 m-2;
 
   &.error {
     @apply text-red-500 bg-red-100;
   }
 
   &.blue {
-    @apply text-indigo-500;
+    @apply text-great-blue-500;
   }
 }
 
@@ -165,14 +165,14 @@ body {
 }
 
 .page-wrapper {
-  @apply h-auto  bg-secondary-color rounded-lg  lg:w-1/2 w-full  mr-auto ml-auto p-6;
+  @apply h-auto  bg-secondary-color rounded-lg  lg:w-1/2 w-full  mr-auto ml-auto p-6 transition-all;
 
 
 
 }
 
 .mobile-menu-button {
-  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-indigo-700 rounded shadow hover:shadow-lg hover:bg-indigo-800 focus:outline-none focus:shadow-lg focus:bg-indigo-800 md:hidden text-4xl flex ml-4;
+  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-great-blue-700 rounded shadow hover:shadow-lg hover:bg-great-blue-800 focus:outline-none focus:shadow-lg focus:bg-great-blue-800 md:hidden text-4xl flex ml-4;
 }
 
 textarea,
@@ -181,10 +181,10 @@ input[type="url"],
 input[type="password"],
 input[type="number"],
 input[type="tel"] {
-  @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
+  @apply  px-3 py-3  text-great-blue-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
 
   &:focus {
-    @apply border-2 border-indigo-500;
+    @apply border-2 border-great-blue-500;
   }
 
   &:invalid {
@@ -198,14 +198,14 @@ textarea.blurred {
 }
 
 button {
-  @apply px-8 rounded-lg bg-primary-color text-white font-bold p-4 uppercase border-indigo-500 border-t border-b border-r text-xl flex flex-col items-center justify-center cursor-pointer;
+  @apply px-8 rounded-lg bg-great-blue text-white font-bold p-4 uppercase border-great-blue border-t border-b border-r text-xl flex flex-col items-center justify-center cursor-pointer;
 
   &:focus {
-    @apply bg-primary-color outline-none border-indigo-500;
+    @apply bg-great-blue outline-none border-great-blue-100;
   }
 
   &:active {
-    @apply bg-indigo-800 border-indigo-800;
+    @apply bg-great-blue-800 border-great-blue-50;
   }
 
   &:disabled {
@@ -213,14 +213,14 @@ button {
   }
 
   &.mini {
-    @apply p-1 px-2 m-2 self-center bg-primary-color border-indigo-500 text-base;
+    @apply p-1 px-2 m-2 self-center bg-great-blue border-great-blue-500 text-base;
 
     &:focus {
-      @apply bg-indigo-700 outline-none border-indigo-700;
+      @apply bg-great-blue-700 outline-none border-great-blue-700;
     }
 
     &:active {
-      @apply bg-indigo-900 border-indigo-900;
+      @apply bg-great-blue-900 border-great-blue-900;
     }
   }
 }
@@ -252,7 +252,7 @@ button {
 }
 
 .feature-slider {
-  @apply flex-grow text-primary-color ;
+  @apply flex-grow text-great-blue ;
 }
 
 .radio-options {
@@ -263,15 +263,15 @@ button {
     @apply p-2 text-center border border-solid border-2 border-gray-500 outline-none m-1 rounded;
 
     &.selected {
-      @apply border-indigo-500;
+      @apply border-great-blue-500;
     }
   }
 
   & input[type="radio"] {
-    @apply block border-primary-color my-2 mx-auto   ; 
+    @apply block border-great-blue my-2 mx-auto   ; 
 
     &:checked{
-      @apply bg-primary-color
+      @apply bg-great-blue
     }
   }
 
@@ -281,7 +281,7 @@ button {
 }
 
 .form-section {
-  @apply border-solid border-0 border-b-2 border-indigo-300 py-8 px-4;
+  @apply border-solid border-0 border-b-2 border-great-blue-300 py-8 px-4;
 
   &:last-child {
     @apply border-none border-0;
@@ -298,9 +298,9 @@ button {
     & .field {
       @apply pl-4 flex-grow ;
       & > input {
-        @apply  px-3 py-3  text-indigo-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
+        @apply  px-3 py-3  text-great-blue-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
         &:focus {
-          @apply border-2 border-indigo-500;
+          @apply border-2 border-great-blue-500;
         }
       
  

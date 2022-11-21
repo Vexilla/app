@@ -25,7 +25,7 @@
 
 .logo {
   font-size: 420px;
-  @apply text-indigo-500
+  @apply text-great-blue
 }
 
 .getting-started-intro {
