@@ -1,6 +1,7 @@
 <template>
   <div class="sidebar" :class="{ showing: sidebarShowing }">
     <div class="toolbar">
+      <div class="div-1">
       <div class="status-wrapper">
         <div>
           <router-link
@@ -8,33 +9,34 @@
             v-if="!configIsValid()"
             :to="'/configuration'"
           >
-            <span class="status-message error">
+            <div class="status-message error">
               Config is currently invalid
-            </span>
+            </div>
      
           </router-link>
         </div>
-        <span v-if="!dataHasChanged()" class="status-message">
+        <div v-if="!dataHasChanged()" class="status-message">
           No changes to push.
-        </span>
-        <span
+        </div>
+        <div
           class="status-message"
           :class="hosting?.status?.type"
           v-if="hosting?.status?.message && !hosting?.status?.route"
         >
           {{ hosting?.status?.message }}
-        </span>
+      </div>
         <router-link
           class="status-link"
           v-if="hosting?.status?.message && hosting?.status?.route"
           :to="hosting?.status?.route"
         >
-          <span class="status-message" :class="hosting?.status?.type">
+          <div class="status-message" :class="hosting?.status?.type">
             {{ hosting?.status?.message }}
-          </span>
+          </div>
         </router-link>
       </div>
-
+    </div>
+<div class="div-2">
       <div class="publish-row">
         <button
           class="icon-button"
@@ -79,9 +81,9 @@
           <span>Configuration</span>
   
         </button>
-  
-    </router-link>
       
+    </router-link>
+  </div>
     </div>
 
     <h2 class="sidebar-title">Environments ({{ environments?.length }})</h2>
@@ -207,6 +209,12 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
+.div-1{
+ @apply h-1/3; 
+}
+.div-2{
+  @apply h-2/3; 
+}
 .sidebar {
 
   @apply bg-white rounded-lg
@@ -235,9 +243,7 @@ export default defineComponent({
 .toolbar {
   @apply sticky left-0 right-0  z-10 flex flex-col justify-start;
 
-  & * {
-    @apply m-2
-  }
+
 
 }
 
@@ -253,6 +259,9 @@ export default defineComponent({
     @apply px-2 py-1 m-2 flex-row capitalize text-center;
 
     &.icon-button {
+      @apply bg-white text-great-blue outline-none border-none;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      
       & .icon {
         @apply m-0;
       }
@@ -261,7 +270,8 @@ export default defineComponent({
 }
 
 .status-wrapper {
-  @apply text-center flex flex-col;
+  @apply text-center  h-full flex flex-row justify-center;
+
 }
 
 

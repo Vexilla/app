@@ -96,7 +96,7 @@ body {
 }
 
 .status-wrapper {
-  @apply text-center m-2 hidden md:block;
+  @apply text-center h-full hidden md:block;
 
 
   @media (min-width: 768px) {
@@ -107,11 +107,13 @@ body {
 }
 
 .status-link {
-  @apply no-underline;
+  @apply no-underline h-auto; 
 }
 
 .status-message {
-  @apply p-5 rounded-lg bg-great-blue-100 m-2;
+  @apply p-4 rounded-lg bg-green-100 text-green-800 m-2;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
 
   &.error {
     @apply text-red-500 bg-red-100;
@@ -260,11 +262,11 @@ button {
     
 
     & h3 {
-      @apply m-0 w-1/3 text-right pt-0;
+      @apply m-0 text-left pt-0;
     }
 
     & .field {
-      @apply pl-4 w-1/2;
+      @apply m-2; 
       & > input {
         @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
         &:focus {

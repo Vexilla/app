@@ -314,9 +314,6 @@
   }
 }
 
-.field {
-  max-width: calc(100% - 9rem);
-}
 
 textarea {
   @apply min-w-full max-w-full;

@@ -119,7 +119,7 @@
 <style lang="postcss">
 
 .feature-page {
-  @apply max-w-screen-sm m-auto;
+  @apply m-auto;
 }
  
 .title {
