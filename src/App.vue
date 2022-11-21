@@ -126,16 +126,16 @@ body {
   @apply flex flex-row relative transition-all justify-around	;
 
 }
-
+.layout * {
+   
+}
 .page-wrapper {
-  @apply h-auto  bg-secondary-color rounded-lg  lg:w-1/2 w-full  p-6 transition-all;
-
-
-
+  @apply h-auto  bg-white  rounded-lg  lg:w-1/2 w-full  p-6 transition-all;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .mobile-menu-button {
-  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-great-blue-700 rounded shadow hover:shadow-lg hover:bg-great-blue-800 focus:outline-none focus:shadow-lg focus:bg-great-blue-800 md:hidden text-4xl flex ml-4;
+  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-great-blue-700 rounded shadow-lg hover:shadow-xl hover:bg-great-blue-800 focus:outline-none focus:shadow-lg focus:bg-great-blue-800 md:hidden text-4xl flex ml-4;
 }
 
 textarea,
@@ -144,10 +144,12 @@ input[type="url"],
 input[type="password"],
 input[type="number"],
 input[type="tel"] {
-  @apply  px-3 py-3  text-great-blue-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
+  @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded text-sm border-2 border-transparent  outline-none focus:outline-none focus:ring w-full; 
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
+
 
   &:focus {
-    @apply border-2 border-great-blue-500;
+    @apply border-2 border-great-blue;
   }
 
   &:invalid {
@@ -244,7 +246,7 @@ button {
 }
 
 .form-section {
-  @apply border-solid border-0 border-b-2 border-great-blue-300 py-8 px-4;
+  @apply border-solid border-0 border-b-2 border-great-blue-50 py-8 px-4;
 
   &:last-child {
     @apply border-none border-0;
@@ -255,13 +257,13 @@ button {
     @apply flex flex-row justify-center items-center;
 
     & h3 {
-      @apply m-0 w-16 md:w-36 text-right pt-0;
+      @apply m-0 w-1/3 text-right pt-0;
     }
 
     & .field {
-      @apply pl-4 flex-grow ;
+      @apply pl-4 w-1/2;
       & > input {
-        @apply  px-3 py-3  text-great-blue-500 relative bg-white bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
+        @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
         &:focus {
           @apply border-2 border-great-blue-500;
         }

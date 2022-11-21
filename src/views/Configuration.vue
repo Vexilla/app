@@ -274,7 +274,7 @@
 
 <style lang="postcss">
 .configuration-page {
-  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center;  
+  @apply  flex flex-col w-full rounded-lg justify-center;  
 }
 .title-button-wrapper{
   @apply flex 
@@ -287,7 +287,7 @@
   }
 
   & button {
-    @apply px-2 py-1 m-2 flex-row capitalize text-center shadow-xl;
+    @apply px-2 py-1 m-2 flex-row capitalize text-center;
 
     &.icon-button {
       @apply h-9;

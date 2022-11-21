@@ -93,7 +93,7 @@
       @itemRemoved="removeEnvironment"
       @navigated="toggleSidebarShowing"
     ></ManageList>
-    <hr class="separator" />
+  
     <h2 class="sidebar-title">Features ({{ features?.length }})</h2>
     <ManageList
       item-label="Feature"
@@ -209,10 +209,9 @@ export default defineComponent({
 <style lang="postcss" scoped>
 .sidebar {
 
-  @apply bg-secondary-color rounded-lg
+  @apply bg-white rounded-lg
   w-screen md:w-1/3  fixed md:relative transform md:transform-none p-4 translate-x-full transition-all p-4 z-10;
-
-}
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;}
 .scrollbar-hide::-webkit-scrollbar {
   display:none 
 }
@@ -220,10 +219,9 @@ export default defineComponent({
   @apply text-2xl
 }
 .sidebar-title{
-  @apply text-center
-}
+  @apply text-center}
 .config-button{
-  @apply flex justify-evenly flex-row
+  @apply flex justify-evenly flex-row bg-great-blue shadow-md
 }
 
 .showing {
@@ -235,7 +233,11 @@ export default defineComponent({
 }
 
 .toolbar {
-  @apply sticky left-0 right-0  z-10;
+  @apply sticky left-0 right-0  z-10 flex flex-col h-1/2 justify-center;
+
+  & * {
+    @apply m-2
+  }
 
 }
 
@@ -259,7 +261,7 @@ export default defineComponent({
 }
 
 .status-wrapper {
-  @apply text-center;
+  @apply text-center flex flex-col;
 }
 
 

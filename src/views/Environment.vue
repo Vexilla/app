@@ -163,7 +163,7 @@
 
 <style lang="postcss">
 .environment-page {
-  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center;  
+  @apply  flex flex-col w-full rounded-lg justify-center;  
   
 }
 .environment-title{
