@@ -137,7 +137,7 @@ body {
 }
 
 .mobile-menu-button {
-  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-great-blue-700 rounded shadow-lg hover:shadow-xl hover:bg-great-blue-800 focus:outline-none focus:shadow-lg focus:bg-great-blue-800 md:hidden text-4xl flex ml-4;
+  @apply h-12 w-12 inline-block px-0 py-0 text-xs font-medium leading-6 text-center text-white uppercase transition bg-great-blue-700 rounded-lg shadow-lg hover:shadow-xl hover:bg-great-blue-800 focus:outline-none focus:shadow-lg focus:bg-great-blue-800 md:hidden text-4xl flex ml-4;
 }
 
 textarea,
@@ -146,7 +146,7 @@ input[type="url"],
 input[type="password"],
 input[type="number"],
 input[type="tel"] {
-  @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded text-sm border-2 border-transparent  outline-none focus:outline-none focus:ring w-full; 
+  @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded-lg text-sm border-2 border-transparent  outline-none focus:outline-none focus:ring w-full; 
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
 
 
@@ -226,11 +226,14 @@ button {
 }
 
 .radio-options {
-  @apply flex flex-row justify-evenly;
+  @apply flex flex-row justify-evenly ;
+  
+  
 
 
   & label {
-    @apply p-2 text-center border border-solid border-2 border-gray-500 outline-none m-1 rounded;
+    @apply p-2 text-center border border-solid border-none outline-none m-1 rounded-lg;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
     &.selected {
       @apply border-great-blue-500;
@@ -268,7 +271,7 @@ button {
     & .field {
       @apply m-2; 
       & > input {
-        @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
+        @apply  px-3 py-3  text-great-blue-500 relative bg-white rounded-lg text-sm border-2 border-transparent shadow outline-none focus:outline-none focus:ring w-full; 
         &:focus {
           @apply border-2 border-great-blue-500;
         }
