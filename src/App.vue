@@ -159,13 +159,13 @@ body {
 }
 
 .layout {
-  @apply flex flex-row relative transition-all;
+  @apply flex flex-row relative transition-all justify-around	;
 
   padding-top: 84px;
 }
 
 .page-wrapper {
-  @apply h-auto  bg-secondary-color rounded-lg  lg:w-1/2 w-full  mr-auto ml-auto p-6 transition-all;
+  @apply h-auto  bg-secondary-color rounded-lg  lg:w-1/2 w-full  p-6 transition-all;
 
 
 

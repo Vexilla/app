@@ -210,7 +210,7 @@ export default defineComponent({
 .sidebar {
 
   @apply bg-secondary-color rounded-lg
-  w-screen md:w-1/3 ml-2 fixed md:relative transform md:transform-none p-4 translate-x-full transition-all p-4 z-10;
+  w-screen md:w-1/3  fixed md:relative transform md:transform-none p-4 translate-x-full transition-all p-4 z-10;
 
 }
 .scrollbar-hide::-webkit-scrollbar {
