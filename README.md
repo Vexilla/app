@@ -1,4 +1,9 @@
+# Warning: Repo Archived
+
+**This repo is archived. The functionality and newest versions of this SDK will be located in the main monorepo: https://github.com/vexilla/vexilla/apps/app**
+
 # Vexilla Config UI
+
 
 If you want to clone the project into a different folder than `app` make sure to specify the destination in your clone command:
 
