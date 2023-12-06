@@ -274,7 +274,7 @@
 
 <style lang="postcss">
 .configuration-page {
-  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center;  
+  @apply  flex flex-col w-full rounded-lg justify-center;  
 }
 .title-button-wrapper{
   @apply flex 
@@ -287,7 +287,7 @@
   }
 
   & button {
-    @apply px-2 py-1 m-2 flex-row capitalize text-center shadow-xl;
+    @apply px-2 py-1 m-2 flex-row capitalize text-center;
 
     &.icon-button {
       @apply h-9;
@@ -308,15 +308,15 @@
 
 .hosting-options {
   @apply justify-start;
+  
 
   & label {
-    @apply m-3;
+    @apply m-3 border-none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
   }
 }
 
-.field {
-  max-width: calc(100% - 9rem);
-}
 
 textarea {
   @apply min-w-full max-w-full;

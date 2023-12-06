@@ -16,6 +16,7 @@
     </form>
     <ul class="list">
       <li v-for="item in list" :key="item?.name" class="item">
+        <div class="left">
         <router-link
           :to="{ name: namedRoute, params: { name: item.name } }"
           class="item-link"
@@ -23,9 +24,12 @@
         >
           <h3 class="item-name">{{ item?.name }}</h3>
         </router-link>
+      </div>
+      <div class="right">
         <button class="delete-button" @click="removeItem(item)">
           <Icon :icon="icons.remove" />
         </button>
+        </div>
       </li>
     </ul>
   </div>
@@ -40,41 +44,53 @@ label {
   @apply flex flex-row w-full;
 
   & input {
-    @apply  px-3 py-3  text-primary-color relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full
+    @apply  px-3 py-3  text-great-blue relative bg-white bg-white rounded-lg text-sm border-2 border-transparent  outline-none focus:outline-none focus:ring w-full; 
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px
   }
 
   & button {
     @apply w-16  ml-2 shadow outline-none ;
   }
 }
-
+.router-link-exact-active{
+  @apply bg-great-blue-50 rounded-lg;
+}
 .list {
-  @apply list-none p-0;
+  @apply list-none p-0 flex flex-row flex-wrap justify-start items-center;
 
   & .item {
-    @apply flex flex-row h-20 pl-4;
+    @apply flex flex-row h-20 bg-white rounded-lg  m-2 w-5/12;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
 
-    & .item-link {
-      width: calc(100% - 3rem);
+    & .left {
+      @apply w-5/6 justify-start items-center
+
+    }
+    & .right{
+      @apply w-1/6 flex justify-around items-center
     }
 
+    & .item-link {
+     @apply items-center flex justify-start p-2 h-full
+    }
+
+
     & .item-name {
-      @apply pointer-events-none truncate;
+      @apply m-0  pointer-events-none truncate;
     }
 
     & a {
-      @apply w-full p-2 relative text-gray-500 no-underline;
+      @apply w-full relative text-gray-500 no-underline;
 
       &::before {
-        @apply absolute right-full h-20 text-transparent transition-all text-xl;
+        @apply absolute right-full text-transparent transition-all text-xl;
 
-        line-height: 4rem;
         content: "✎";
       }
 
       &:hover,
       &:focus {
-        @apply outline-none text-indigo-500;
+        @apply outline-none text-great-blue-500;
 
         &::before {
           @apply text-gray-500;
@@ -83,14 +99,15 @@ label {
     }
 
     & button {
-      @apply w-8 h-8 p-2 m-2 self-center bg-red-500 border-red-500;
+      @apply p-2 self-center mr-2 w-1/6 bg-transparent border-none outline-none;
 
-      &:focus {
-        @apply bg-red-700 outline-none border-red-700;
+
+      &:hover,&:focus {
+        @apply outline-none text-red-800 ;
       }
 
       &:active {
-        @apply bg-red-900 border-red-900;
+        @apply  text-red-900;
       }
     }
   }

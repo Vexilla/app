@@ -163,10 +163,11 @@
 
 <style lang="postcss">
 .environment-page {
-  @apply  flex flex-col w-full bg-secondary-color rounded-lg justify-center;  
+  @apply  flex flex-col w-full rounded-lg justify-center;  
+  
 }
 .environment-title{
-  @apply flex items-center border-2 border-primary-color }
+  @apply flex items-center border-2 border-great-blue }
 .environment-title > label {
     @apply m-4 flex-grow
 }
