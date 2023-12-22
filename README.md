@@ -1,6 +1,6 @@
 # Warning: Repo Archived
 
-**This repo is archived. The app is now maintained the main monorepo: https://github.com/vexilla/vexilla/apps/app**
+**This repo is archived. The app is now maintained the main monorepo: https://github.com/vexilla/vexilla/tree/main/apps/app**
 
 # Vexilla Config UI
 
